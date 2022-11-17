@@ -1,0 +1,197 @@
+<div fxLayout="row wrap" style="margin-top: -200px">
+    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100" style="padding: 8px">
+        <mat-card class="kartya">
+            <mat-card-content>
+                <p>1. A legmagasabb szőke ember megkeresése</p>
+                <div class="elvalaszto" style="margin-top: -10px; margin-bottom: 15px;"></div>
+                <div style="width: 100%; margin-bottom: 10px">
+                  <button *ngIf="elsoFeladatMegoldva.id == 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas('elso_feladat')">Megoldás</button>
+                  <button *ngIf="elsoFeladatMegoldva.id != 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas_torles(elsoFeladatMegoldva.id, elsoFeladatMegoldva.task_number)">Megoldás törlése</button>
+                </div>
+                <div fxLayout="row wrap">
+                    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                <table>
+                    <tr>
+                      <td>Név</td>
+                      <td>Hajszín</td>
+                      <td>Magasság</td>
+                    </tr>
+                    <tr *ngFor="let karakter of Karakterek | slice:0:tablazat1zaroIndex">
+                      <td>{{karakter.name}}</td>
+                      <td>{{karakter.hair_color}}</td>
+                      <td>{{karakter.height}}</td>
+                    </tr>
+                  </table>
+
+                  <div style="width: 100%; margin-top: 10px">
+                    <button *ngIf="tablazat1zaroIndex < Karakterek.length" mat-stroked-button style="border-color: red; color: white; width: 100%" (click)="tobbet_mutat('elso_feladat')">Többet mutat</button>
+                </div>
+                </div>
+            </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="kartya" style="margin-top: 10px">
+            <mat-card-content>
+                <p>2. Minden Bolygó megkeresése ami minden filmben megjelenik és hegyekkel rendelkezik</p>
+                <div class="elvalaszto" style="margin-top: -10px; margin-bottom: 15px;"></div>
+                <div style="width: 100%; margin-bottom: 10px">
+                    <small>(Nem tartalmaz az adatbázis olyan bolygót, ami minden filmben megjelenik és rendelkezik hegyekkel)</small>
+                </div>
+                <div fxLayout="row wrap">
+                    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                <table>
+                    <tr>
+                      <td>Név</td>
+                      <td>Terep tulajdonságok</td>
+                      <td>Hány filmben jelenik meg</td>
+                    </tr>
+                    <tr *ngFor="let bolygo of Bolygok | slice:0:tablazat2zaroIndex">
+                      <td>{{bolygo.name}}</td>
+                      <td>{{bolygo.terrain}}</td>
+                      <td>{{bolygo.films.length}}</td>
+                    </tr>
+                  </table>
+
+                  <div style="width: 100%; margin-top: 10px">
+                    <button *ngIf="tablazat2zaroIndex < Bolygok.length" mat-stroked-button style="border-color: red; color: white; width: 100%" (click)="tobbet_mutat('masodik_feladat')">Többet mutat</button>
+                </div>
+                </div>
+            </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="kartya" style="margin-top: 10px">
+          <mat-card-content>
+              <p>3. A filmekben előforduló leggyakoribb faj, amelynek az átlagos élettartama ismert</p>
+              <div class="elvalaszto" style="margin-top: -10px; margin-bottom: 15px;"></div>
+              <div style="width: 100%; margin-bottom: 10px">
+                <button *ngIf="harmadikFeladatMegoldva.id == 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas('harmadik_feladat')">Megoldás</button>
+                <button *ngIf="harmadikFeladatMegoldva.id != 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas_torles(harmadikFeladatMegoldva.id, harmadikFeladatMegoldva.task_number)">Megoldás törlése</button>
+            </div>
+              <div fxLayout="row wrap">
+                  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <table>
+                  <tr>
+                    <td>Név</td>
+                    <td>Átlagos élettartam</td>
+                    <td>Hány filmben jelenik meg</td>
+                  </tr>
+                  <tr *ngFor="let faj of Fajok | slice:0:tablazat3zaroIndex">
+                    <td>{{faj.name}}</td>
+                    <td>{{faj.average_lifespan}}</td>
+                    <td>{{faj.films.length}}</td>
+                  </tr>
+                </table>
+
+                <div style="width: 100%; margin-top: 10px">
+                  <button *ngIf="tablazat3zaroIndex < Fajok.length" mat-stroked-button style="border-color: red; color: white; width: 100%" (click)="tobbet_mutat('harmadik_feladat')">Többet mutat</button>
+              </div>
+              </div>
+          </div>
+          </mat-card-content>
+      </mat-card>
+
+      <mat-card class="kartya" style="margin-top: 10px">
+        <mat-card-content>
+            <p>4. A leggyorsabb csillaghajó és jármű amelyet a "Kuat Drive Yards" gyártott.</p>
+            <div class="elvalaszto" style="margin-top: -10px; margin-bottom: 15px;"></div>
+            <div style="width: 100%; margin-bottom: 10px">
+              <button *ngIf="negyedikFeladatMegoldva.id == 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas('negyedik_feladat')">Megoldás</button>
+              <button *ngIf="negyedikFeladatMegoldva.id != 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas_torles(negyedikFeladatMegoldva.id, negyedikFeladatMegoldva.task_number)">Megoldás törlése</button>
+          </div>
+            <div fxLayout="row wrap">
+                <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+            <table>
+                <tr>
+                  <td>Név</td>
+                  <td>Gyártó</td>
+                  <td>Végsebesség</td>
+                  <td>Járműfajta</td>
+                </tr>
+                <tr *ngFor="let hajojarmu of HajokJarmuvek | slice:0:tablazat4zaroIndex">
+                  <td>{{hajojarmu.name}}</td>
+                  <td>{{hajojarmu.manufacturer}}</td>
+                  <td>{{hajojarmu.max_atmosphering_speed}}</td>
+                  <td>{{hajojarmu.type}}</td>
+                </tr>
+              </table>
+
+              <div style="width: 100%; margin-top: 10px">
+                <button *ngIf="tablazat4zaroIndex < HajokJarmuvek.length" mat-stroked-button style="border-color: red; color: white; width: 100%" (click)="tobbet_mutat('negyedik_feladat')">Többet mutat</button>
+            </div>
+            </div>
+        </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="kartya" style="margin-top: 10px">
+      <mat-card-content>
+          <p>5. Minden élőlény amelyik nem rendelkezik ismeretlen tulajdonsággal</p>
+          <div class="elvalaszto" style="margin-top: -10px; margin-bottom: 15px;"></div>
+          <div style="width: 100%; margin-bottom: 10px">
+            <button *ngIf="otodikFeladatMegoldva.id == 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas('otodik_feladat')">Megoldás</button>
+            <button *ngIf="otodikFeladatMegoldva.id != 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas_torles(otodikFeladatMegoldva.id, otodikFeladatMegoldva.task_number)">Megoldás törlése</button>
+        </div>
+          <div fxLayout="row wrap">
+              <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+          <table>
+              <tr>
+                <td style="width: 250px">Bolygók</td>
+                <td>Ismeretlen tulajdonság</td>
+              </tr>
+              <tr *ngFor="let bolygo of BolygokUnknown | slice:0:tablazat5zaroIndex">
+                <td>{{bolygo.name}}</td>
+                <td *ngIf="bolygo.hianyzo">van</td>
+                <td *ngIf="bolygo.hianyzo==false">nincs</td>
+              </tr>
+            </table>
+
+            <div style="width: 100%; margin-top: 10px">
+              <button *ngIf="tablazat5zaroIndex < BolygokUnknown.length" mat-stroked-button style="border-color: red; color: white; width: 100%" (click)="tobbet_mutat('otodik_elso_feladat')">Többet mutat</button>
+          </div>
+          </div>
+      </div>
+
+      <div fxLayout="row wrap">
+        <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+    <table>
+        <tr>
+          <td style="width: 250px">Karakterek</td>
+          <td>Ismeretlen tulajdonság</td>
+        </tr>
+        <tr *ngFor="let karakter of KarakterekUnknown | slice:0:tablazat6zaroIndex">
+          <td>{{karakter.name}}</td>
+          <td *ngIf="karakter.hianyzo">van</td>
+          <td *ngIf="karakter.hianyzo==false">nincs</td>
+        </tr>
+      </table>
+
+      <div style="width: 100%; margin-top: 10px">
+        <button *ngIf="tablazat6zaroIndex < KarakterekUnknown.length" mat-stroked-button style="border-color: red; color: white; width: 100%" (click)="tobbet_mutat('otodik_masodik_feladat')">Többet mutat</button>
+    </div>
+    </div>
+</div>
+      </mat-card-content>
+  </mat-card>
+
+  <mat-card class="kartya" style="margin-top: 10px">
+    <mat-card-content>
+        <p>6. Bónusz feladat, minden hiányzó/ismeretlen mező törlése, a töröltek darabszámának elküldése</p>
+        <div class="elvalaszto" style="margin-top: -10px; margin-bottom: 15px;"></div>
+        <div style="width: 100%; margin-bottom: 15px">
+          <div><span>Amiket vizsgáltam:</span>'unknown', ' ', 'n/a', 'N/A'</div>
+      </div>
+        <div style="width: 100%; margin-bottom: 15px">
+          <button *ngIf="hatodikFeladatMegoldva.id == 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas('hatodik_feladat')">Megoldás</button>
+          <button *ngIf="hatodikFeladatMegoldva.id != 0" mat-stroked-button style="border-color: red; color: white;" (click)="megoldas_torles(hatodikFeladatMegoldva.id, hatodikFeladatMegoldva.task_number)">Megoldás törlése</button>
+      </div>
+      <div *ngIf="hatodikFeladatMegoldva.id != 0" style="width: 100%; margin-top: 10px">
+        <div><span>Törölt mezők száma:</span>&nbsp;{{BonuszToroltTalalat}}&nbsp;db</div>
+    </div>
+
+    </mat-card-content>
+</mat-card>
+
+    </div>
+</div>

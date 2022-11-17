@@ -1,0 +1,10 @@
+@keyframes kartya_kiemel_anim {
+    0%   {transform: scale(1)}
+    100% {transform: scale(1.02)}
+  }
+
+.kartya:hover{
+  animation-name: kartya_kiemel_anim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}

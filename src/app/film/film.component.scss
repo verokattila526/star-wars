@@ -1,0 +1,16 @@
+.eltolas{
+    padding-left: 10px;
+}
+
+@media screen and (max-width: 599px) {
+    .eltolas{
+        padding-left: 0px;
+        padding-top: 10px;
+    }
+}
+
+.szereplok{
+    border: rgb(100, 100, 100) solid 1px;
+    border-radius: 5px;
+    padding: 10px;
+}

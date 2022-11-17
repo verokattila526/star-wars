@@ -1,0 +1,19 @@
+    <div fxLayout="row wrap" style="margin-top: -200px">
+        <div *ngFor="let film of Filmek" fxFlex.gt-lg="33.3" fxFlex.gt-md="33.3" fxFlex.gt-xs="50" fxFlex="100" style="padding: 8px">
+    <mat-card class="kartya" (click)="film_kivalaszt(film.id)" style="cursor: pointer;">
+        <img mat-card-image [src]="film.coverLink" class="foto">
+        <mat-card-content>
+        <div>
+            <h2 style="color: rgb(100, 100, 100)">{{film.title}}</h2>
+        </div>
+        <div style="margin-top: -20px">
+        <small>{{film.release_date | date: 'yyyy/MM/dd'}}</small>
+    </div>
+    <div style="margin-top: 10px">
+        <p style="text-align: justify">{{film.opening_crawl}}</p>
+    </div>
+        <!--   <small>{{film.opening_crawl}}</small> -->
+    </mat-card-content>
+    </mat-card>
+</div>
+</div>

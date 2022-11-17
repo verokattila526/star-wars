@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: rgb(30, 30, 30); 
+}
+
+.container {
+    padding-right: 300px;
+    padding-left: 300px;
+}
+.fejlec{
+    z-index: 1;
+    width: 100%;
+    opacity: 0.8;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    position: fixed;
+}
+.banner{
+    position: relative;
+}
+.banner_kep{
+    background-image: url('assets/img/banner5.jpg');
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+.banner_kep_takaro{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0, .3), red);
+}
+.star_wars_felirat{
+    font-family: 'Poller One', cursive;
+}
+.foto{
+    object-fit: cover; 
+}
+.oldal_cim{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+}
+.kartya{
+    color: white; 
+    background-color: black; 
+}
+@media screen and (max-width: 1800px) {
+    .container {
+        padding-right: 150px;
+        padding-left: 150px;
+    }
+}
+.elvalaszto{
+    height: 1px;
+    width: 100%;
+    background-color: red;
+}
+
+@media screen and (max-width: 1500px) {
+    .container {
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .container {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .container {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
